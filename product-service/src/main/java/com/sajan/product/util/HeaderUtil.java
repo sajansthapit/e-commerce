@@ -20,7 +20,8 @@ public final class HeaderUtil {
     }
 
     public static HttpHeaders getEntityAlert(String entityName, boolean success){
-        return createAlert(entityName + " has been fetched successfully", success);
+        return success ? createAlert(entityName + " has been fetched successfully", true):
+                createAlert(entityName, false);
     }
 
     /*public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
