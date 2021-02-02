@@ -10,6 +10,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<?> noSuchElementException(NoSuchElementException exception){
-        return ResponseEntity.notFound().headers(HeaderUtil.getEntityAlert(exception.getMessage(), false)).build();
+        return ResponseEntity.notFound().headers(HeaderUtil.exceptionAlert(exception.getMessage())).build();
     }
 }

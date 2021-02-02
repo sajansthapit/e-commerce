@@ -15,13 +15,16 @@ public final class HeaderUtil {
         return headers;
     }
 
-    public static HttpHeaders createEntityCreationAlert(String entityName, boolean success) {
-        return createAlert("A new " + entityName + " is created", success);
+    public static HttpHeaders createEntityCreationAlert(String entityName) {
+        return createAlert("A new " + entityName + " is created", true);
     }
 
-    public static HttpHeaders getEntityAlert(String entityName, boolean success){
-        return success ? createAlert(entityName + " has been fetched successfully", true):
-                createAlert(entityName, false);
+    public static HttpHeaders getEntityAlert(String entityName){
+        return createAlert(entityName + " has been fetched successfully", true);
+    }
+
+    public static HttpHeaders exceptionAlert(String message){
+        return createAlert(message, false);
     }
 
     /*public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
