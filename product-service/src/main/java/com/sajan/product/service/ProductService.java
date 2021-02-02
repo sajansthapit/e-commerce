@@ -7,4 +7,6 @@ public interface ProductService {
 
     Product save(ProductDto productDto);
 
+    Product findById(Long id);
+
 }
