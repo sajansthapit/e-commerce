@@ -22,7 +22,7 @@ public class UsersController {
         Users result = usersService.save(users);
         return ResponseEntity.created(new URI("/users/" + result.getId())).
                 headers(HeaderUtil.createEntityCreationAlert("users"))
-                .body(users);
+                .body(result);
     }
 
     @GetMapping("/get/{id}")

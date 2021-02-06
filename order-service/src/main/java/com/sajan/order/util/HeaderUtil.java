@@ -1,6 +1,11 @@
 package com.sajan.order.util;
 
+import com.sajan.order.util.dto.HeaderDto;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.ClientHttpResponse;
+
+import java.util.Objects;
 
 public final class HeaderUtil {
 
@@ -25,6 +30,13 @@ public final class HeaderUtil {
 
     public static HttpHeaders exceptionAlert(String message){
         return createAlert(message, false);
+    }
+
+    public static HeaderDto getHeaders(ResponseEntity<?> response){
+        HeaderDto headerDto = new HeaderDto();
+        headerDto.setMessage(Objects.requireNonNull(response.getHeaders().get("message")).get(0));
+        headerDto.setSuccess(Boolean.valueOf(Objects.requireNonNull(response.getHeaders().get("success")).get(0)));
+        return headerDto;
     }
 
     /*public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
