@@ -32,7 +32,7 @@ public class OrderProductServiceImpl implements OrderProductService {
         OrderProduct orderProduct = new OrderProduct();
         orderProduct.setOrderId(orderDto.getProductId());
         orderProduct.setProductId(product.getId());
-        orderProduct.setQuantity(orderProduct.getQuantity());
+        orderProduct.setQuantity(orderDto.getQuantity());
         orderProduct.setStatus("ACTIVE");
         orderProductRepository.save(orderProduct);
         return product;
